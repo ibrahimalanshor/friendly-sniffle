@@ -447,10 +447,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .input.input-sm {
   padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
 }
 
 .input.input-lg {
   padding: 0.75rem 1rem;
+  font-size: 1.125rem;
 }
 
 .input:focus {
@@ -488,8 +490,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .checkbox-label:before, .radio-label:before {
   content: '';
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   margin-right: 0.5rem;
   border-width: 1px;
   border-style: solid;
@@ -528,6 +530,56 @@ input[type=radio]:checked ~ .radio-label:before {
 
 .form-text.form-text-error {
   color: #ef4444;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+.button.button-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.button.button-lg {
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+}
+
+.button.button-block {
+  display: block;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #f3f4f6;
+}
+
+.button.button-blue {
+  background-color: #3b82f6;
+  color: #fff;
+  border-color: #3b82f6;
+}
+
+.button.button-blue:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.button.button-outline-blue {
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.button.button-outline-blue:hover {
+  background-color: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
 }
 
 .my-20 {
