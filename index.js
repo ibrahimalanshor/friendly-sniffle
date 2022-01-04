@@ -10,6 +10,8 @@ module.exports = plugin.withOptions(function (options) {
     const danger = colors[options?.danger ?? 'red']
     const gray  = colors[options?.gray ?? 'gray']
 
+    const buttonColors = options?.buttons ?? ['blue', 'red', 'yellow', 'green']
+
     const border = {
       borderWidth: borderWidth.DEFAULT,
       borderStyle: 'solid',
@@ -114,6 +116,28 @@ module.exports = plugin.withOptions(function (options) {
         color: danger['500']
       }
     }
+
+    const buttons = buttonColors.map(color => ({
+      [`.button.button-${color}`]: {
+        backgroundColor: colors[color]['500'],
+        color: colors.white,
+        borderColor: colors[color]['500']
+      },
+      [`.button.button-${color}:hover`]: {
+        backgroundColor: colors[color]['600'],
+        borderColor: colors[color]['600']
+      },
+      [`.button.button-outline-${color}`]: {
+        color: colors[color]['500'],
+        borderColor: colors[color]['500']
+      },
+      [`.button.button-outline-${color}:hover`]: {
+        backgroundColor: colors[color]['500'],
+        color: colors.white,
+        borderColor: colors[color]['500']
+      }
+    }))
+
     const button = {
       '.button': {
         display: 'inline-block',
@@ -131,31 +155,14 @@ module.exports = plugin.withOptions(function (options) {
       },
       '.button.button-block': {
         display: 'block',
-        width: '100%'
+        width: '100%',
+        textAlign: 'center'
       },
       '.button:hover': {
         backgroundColor: gray['100'] 
-      },
-      '.button.button-blue': {
-        backgroundColor: primary['500'],
-        color: colors.white,
-        borderColor: primary['500']
-      },
-      '.button.button-blue:hover': {
-        backgroundColor: primary['600'],
-        borderColor: primary['600']
-      },
-      '.button.button-outline-blue': {
-        color: primary['500'],
-        borderColor: primary['500']
-      },
-      '.button.button-outline-blue:hover': {
-        backgroundColor: primary['600'],
-        color: colors.white,
-        borderColor: primary['600']
       }
     }
 
-    addComponents([form, label, input, formText, button])
+    addComponents([form, label, input, formText, button, buttons])
   }
 })
